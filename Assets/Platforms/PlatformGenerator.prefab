@@ -33,8 +33,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057430141883898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,7 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074325057a912ac4e9e34f94c957f8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platforms: {fileID: 1978868208277404, guid: 3c421ccc52e12084baa87174c1742cbb, type: 2}
+  platformPoolers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   generationPoint: {fileID: 0}
-  distanceBetweenMin: 0
-  distanceBetweenMax: 3
+  distanceBetweenMin: 4
+  distanceBetweenMax: 10
+  maxHeightPoint: {fileID: 4735241902275744}
+  maxHeightChange: 0

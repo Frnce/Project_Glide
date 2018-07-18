@@ -10,6 +10,12 @@ namespace Glide.Platforms
         [SerializeField] float distanceBetweenMin = 0f;
         [SerializeField] float distanceBetweenMax = 3f;
 
+        float minHeight;
+        [SerializeField] Transform maxHeightPoint;
+        float maxHeight;
+        [SerializeField] float maxHeightChange;
+        float heightChange;
+
         float distanceBetween = 0f;
 
         float[] platformWidths;
@@ -19,6 +25,9 @@ namespace Glide.Platforms
         void Start()
         {
             InitializePooler();
+
+            minHeight = transform.position.y;
+            maxHeight = maxHeightPoint.position.y;
         }
         // Update is called once per frame
         void Update()
@@ -42,7 +51,18 @@ namespace Glide.Platforms
             {
                 distanceBetween = Random.Range(distanceBetweenMin, distanceBetweenMax);
                 selectedPlatform = Random.Range(0, platformPoolers.Length);
-                transform.position = new Vector3(transform.position.x + (platformWidths[selectedPlatform] / 2) + distanceBetween, transform.position.y, transform.position.z);
+
+                heightChange = transform.position.y + Random.Range(maxHeightChange, -maxHeightChange);
+                if(heightChange > maxHeight)
+                {
+                    heightChange = maxHeight;
+                }
+                else if(heightChange < minHeight)
+                {
+                    heightChange = minHeight;
+                }
+
+                transform.position = new Vector3(transform.position.x + (platformWidths[selectedPlatform] / 2) + distanceBetween, heightChange, transform.position.z);
                 GameObject newPlatform = platformPoolers[selectedPlatform].GetPooledObject();
                 newPlatform.transform.position = transform.position;
                 newPlatform.SetActive(true);
