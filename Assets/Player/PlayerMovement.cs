@@ -17,6 +17,10 @@ namespace Glide.Characters
             playerController = GetComponent<PlayerController>();
             jumpTimeCounter = jumpTime;
         }
+        private void Update()
+        {
+            
+        }
 
         // Update is called once per frame
         void FixedUpdate()
@@ -34,7 +38,7 @@ namespace Glide.Characters
 
         private void PlayerJump()
         {
-            if (Input.GetKeyDown(KeyCode.Space) )
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (playerController.GetIsGrounded())
                 {

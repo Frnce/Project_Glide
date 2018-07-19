@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Glide.Manager;
 
 namespace Glide.Characters
 {
@@ -17,11 +18,28 @@ namespace Glide.Characters
         [SerializeField] float speedMultiplier = 5f;
         private bool isGrounded;
         float speedMilestoneCount;
+
+        float moveSpeedStore;
+        float speedMilestoneCountStore;
+        float speedIncreaseMilestoneStore;
+
+        GameManager gameManager;
         // Use this for initialization
         void Start()
         {
-            speedMilestoneCount = speedIncreaseMilestone;
+            NewMethod();
+            gameManager = FindObjectOfType<GameManager>();
         }
+
+        private void NewMethod()
+        {
+            speedMilestoneCount = speedIncreaseMilestone;
+
+            moveSpeedStore = moveSpeed;
+            speedMilestoneCountStore = speedMilestoneCount;
+            speedIncreaseMilestoneStore = speedIncreaseMilestone;
+        }
+
         public float GetMoveSpeed()
         {
             return moveSpeed;
@@ -55,6 +73,22 @@ namespace Glide.Characters
         private void CheckIfGrounded()
         {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("KillBox"))
+            {
+                gameManager.RestartGame();
+                ResetPlayerAttributes();
+            }
+        }
+
+        private void ResetPlayerAttributes()
+        {
+            moveSpeed = moveSpeedStore;
+            speedMilestoneCount = speedMilestoneCountStore;
+            speedIncreaseMilestone = speedIncreaseMilestoneStore;
         }
     }
 
