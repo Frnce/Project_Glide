@@ -16,13 +16,14 @@ namespace Glide.Manager
         [SerializeField] float restartDelay = 0.5f;
 
         DestroyPlatforms[] platformsList;
+        ScoreManager scoreManager;
 
         // Use this for initialization
         void Start()
         {
             SetupStartPoints();
 
-            playerController = FindObjectOfType<PlayerController>();
+            scoreManager = FindObjectOfType<ScoreManager>();
         }
 
         private void SetupStartPoints()
@@ -36,6 +37,7 @@ namespace Glide.Manager
         }
         public IEnumerator IRestartGame()
         {
+            scoreManager.GetScoreIncreasing(false);
             playerController.gameObject.SetActive(false);
             yield return new WaitForSeconds(restartDelay);
 
@@ -47,6 +49,9 @@ namespace Glide.Manager
             playerController.gameObject.SetActive(true);
             playerController.transform.position = playerStartPoint;
             platformGenerator.position = platformStartPoint;
+
+            scoreManager.getScoreCount(0);
+            scoreManager.GetScoreIncreasing(true);
         }
     }
 }
