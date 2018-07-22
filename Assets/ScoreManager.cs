@@ -28,6 +28,10 @@ namespace Glide.Manager
         {
             return scoreCount = score;
         }
+        public float getCoinsScoreCount(int points)
+        {
+            return collectedCoinsCount += points;
+        }
         // Update is called once per frame
         void Update()
         {
@@ -47,6 +51,7 @@ namespace Glide.Manager
         private void ShowScoreText()
         {
             scoreText.text = Mathf.Round(scoreCount).ToString("0000000");
+            collectedCoinsText.text = collectedCoinsCount.ToString("0000");
         }
     }
 

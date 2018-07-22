@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Glide.Platforms
+namespace Glide.Utilities
 {
-    public class PlatformPooler : MonoBehaviour
+    public class ObjectPooler : MonoBehaviour
     {
         [SerializeField] GameObject pooledObject;
         [SerializeField] int pooledAmount;

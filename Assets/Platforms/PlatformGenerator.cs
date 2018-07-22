@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Glide.Platforms
+namespace Glide.Utilities
 {
     public class PlatformGenerator : MonoBehaviour
     {
-        [SerializeField] PlatformPooler[] platformPoolers;
+        [SerializeField] ObjectPooler[] platformPoolers;
         [SerializeField] Transform generationPoint;
 
         [SerializeField] float distanceBetweenMin = 0f;
@@ -21,6 +21,9 @@ namespace Glide.Platforms
         float[] platformWidths;
         int selectedPlatform;
 
+        CoinGenerator coinGenerator;
+        [SerializeField] float randomGemThreshold;
+
         // Use this for initialization
         void Start()
         {
@@ -28,6 +31,8 @@ namespace Glide.Platforms
 
             minHeight = transform.position.y;
             maxHeight = maxHeightPoint.position.y;
+
+            coinGenerator = FindObjectOfType<CoinGenerator>();
         }
         // Update is called once per frame
         void Update()
@@ -66,6 +71,11 @@ namespace Glide.Platforms
                 GameObject newPlatform = platformPoolers[selectedPlatform].GetPooledObject();
                 newPlatform.transform.position = transform.position;
                 newPlatform.SetActive(true);
+
+                if(Random.Range(0f,100f) < randomGemThreshold)
+                {
+                    coinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z));
+                }
 
                 transform.position = new Vector3(transform.position.x + (platformWidths[selectedPlatform] / 2), transform.position.y, transform.position.z);
             }
