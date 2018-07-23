@@ -27,11 +27,11 @@ namespace Glide.Characters
         // Use this for initialization
         void Start()
         {
-            NewMethod();
+            InitializeVariables();
             gameManager = FindObjectOfType<GameManager>();
         }
 
-        private void NewMethod()
+        private void InitializeVariables()
         {
             speedMilestoneCount = speedIncreaseMilestone;
 
