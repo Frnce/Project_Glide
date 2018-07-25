@@ -53,5 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPoolers:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   generationPoint: {fileID: 0}
   randomGemThreshold: 75

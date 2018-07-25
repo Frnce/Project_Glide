@@ -6,8 +6,8 @@ namespace Glide.Utilities
 {
     public class ObjectPooler : MonoBehaviour
     {
-        [SerializeField] GameObject pooledObject;
-        [SerializeField] int pooledAmount;
+        [SerializeField] GameObject pooledObject = null;
+        [SerializeField] int pooledAmount = 2;
 
         List<GameObject> pooledObjects;
         // Use this for initialization
