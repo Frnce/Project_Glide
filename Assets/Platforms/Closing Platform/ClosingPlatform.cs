@@ -6,22 +6,23 @@ namespace Glide.Platforms
 {
     public class ClosingPlatform : MonoBehaviour
     {
-        [SerializeField] Transform Up;
-        [SerializeField] Transform Down;
+        [SerializeField] Transform up;
+        [SerializeField] Transform down;
         [SerializeField] float velocity = 2f;
 
         bool isTriggered = false;
+
         private void FixedUpdate()
         {
             if (isTriggered)
             {
-                Up.GetComponent<Rigidbody2D>().MovePosition(Up.GetComponent<Rigidbody2D>().position + Vector2.up * velocity * Time.fixedDeltaTime);
-                Down.GetComponent<Rigidbody2D>().MovePosition(Down.GetComponent<Rigidbody2D>().position + -Vector2.up * velocity * Time.fixedDeltaTime);
+                up.GetComponent<Rigidbody2D>().MovePosition(up.GetComponent<Rigidbody2D>().position + Vector2.up * velocity * Time.fixedDeltaTime);
+                down.GetComponent<Rigidbody2D>().MovePosition(down.GetComponent<Rigidbody2D>().position + -Vector2.up * velocity * Time.fixedDeltaTime);
             }
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.GetComponent<Collider2D>().CompareTag("Player"))
+            if (collision.CompareTag("Player"))
             {
                 isTriggered = true;
             }
