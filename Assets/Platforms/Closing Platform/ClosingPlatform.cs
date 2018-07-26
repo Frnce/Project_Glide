@@ -6,16 +6,24 @@ namespace Glide.Platforms
 {
     public class ClosingPlatform : MonoBehaviour
     {
-        [SerializeField] float moveVelocity = 12f;
+        [SerializeField] Transform Up;
+        [SerializeField] Transform Down;
+        [SerializeField] float velocity = 2f;
 
-        [SerializeField] Transform goingUpPlatform;
-        [SerializeField] Transform goingDownPlatform;
+        bool isTriggered = false;
+        private void FixedUpdate()
+        {
+            if (isTriggered)
+            {
+                Up.GetComponent<Rigidbody2D>().MovePosition(Up.GetComponent<Rigidbody2D>().position + Vector2.up * velocity * Time.fixedDeltaTime);
+                Down.GetComponent<Rigidbody2D>().MovePosition(Down.GetComponent<Rigidbody2D>().position + -Vector2.up * velocity * Time.fixedDeltaTime);
+            }
+        }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Player"))
+            if (collision.GetComponent<Collider2D>().CompareTag("Player"))
             {
-                goingUpPlatform.GetComponent<Rigidbody2D>().velocity = new Vector2(goingUpPlatform.localPosition.x, moveVelocity);
-                goingDownPlatform.GetComponent<Rigidbody2D>().velocity = new Vector2(goingDownPlatform.localPosition.x, -moveVelocity);
+                isTriggered = true;
             }
         }
     }
