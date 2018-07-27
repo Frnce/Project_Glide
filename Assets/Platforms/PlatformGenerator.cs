@@ -44,13 +44,14 @@ namespace Glide.Utilities
 
                 transform.position = new Vector3(transform.position.x + (platformWidths[selectedPlatform] / 2), transform.position.y, transform.position.z);
                 GameObject newPlatform = platformPoolers[selectedPlatform].GetPooledObject();
-                newPlatform.transform.position = transform.position;
+                //newPlatform.transform.position = transform.position;
+                newPlatform.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
                 newPlatform.SetActive(true);
 
-                if(Random.Range(0f,100f) < randomGemThreshold)
-                {
-                    coinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z));
-                }
+                //if(Random.Range(0f,100f) < randomGemThreshold)
+                //{
+                //    coinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z));
+                //}
 
                 transform.position = new Vector3(transform.position.x + (platformWidths[selectedPlatform] / 2), transform.position.y, transform.position.z);
             }
