@@ -193,7 +193,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4925289684375246, guid: a065d89d05e0d0848a908717e8e9e6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a065d89d05e0d0848a908717e8e9e6ff, type: 2}
@@ -227,8 +227,9 @@ Transform:
   m_Children:
   - {fileID: 849637933}
   - {fileID: 950527531}
+  - {fileID: 669586756}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &391319051
 Prefab:
@@ -271,11 +272,54 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1407358312331434, guid: cb4cc17f3187fe94a89b473c70e44195, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb4cc17f3187fe94a89b473c70e44195, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &669586755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 669586756}
+  - component: {fileID: 669586757}
+  m_Layer: 0
+  m_Name: Falling Platform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &669586756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 669586755}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 362656409}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &669586757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 669586755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791928ae07b29964f85d61db932e2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 1875353008791952, guid: 0e7a454b303a88144bbf4b9b04e5944b,
+    type: 2}
+  pooledAmount: 5
 --- !u!1001 &804813502
 Prefab:
   m_ObjectHideFlags: 0
@@ -371,7 +415,7 @@ GameObject:
   - component: {fileID: 950527531}
   - component: {fileID: 950527532}
   m_Layer: 0
-  m_Name: Simple Platform Pool 3x1 (1)
+  m_Name: Closing Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,9 +445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791928ae07b29964f85d61db932e2a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1875353008791952, guid: 0e7a454b303a88144bbf4b9b04e5944b,
+  pooledObject: {fileID: 1507888140029120, guid: fd6d1f2d24cb9614fbca58701c9132d9,
     type: 2}
-  pooledAmount: 3
+  pooledAmount: 5
 --- !u!1001 &1235160047
 Prefab:
   m_ObjectHideFlags: 0
@@ -518,7 +562,7 @@ Prefab:
     - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
         type: 2}
       propertyPath: platformPoolers.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4735241902275744, guid: 3c48c3c90446e624098524586090d9c3, type: 2}
       propertyPath: m_LocalPosition.x
@@ -566,7 +610,7 @@ Prefab:
         type: 2}
       propertyPath: platformPoolers.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 669586757}
     - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
         type: 2}
       propertyPath: platformPoolers.Array.data[3]

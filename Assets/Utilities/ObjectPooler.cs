@@ -45,7 +45,11 @@ namespace Glide.Utilities
                     return pooledObjects[i];
                 }
             }
-            return gameObject;
+
+            GameObject obj = (GameObject)Instantiate(pooledObject);
+            obj.SetActive(false);
+            pooledObjects.Add(obj);
+            return obj;
         }
     }
 
