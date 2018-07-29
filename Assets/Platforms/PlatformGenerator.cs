@@ -2,9 +2,17 @@
 
 namespace Glide.Utilities
 {
+    [System.Serializable]
+    public class PlatformData
+    {
+        public ObjectPooler objectPools;
+        //Consider using vector for varied position
+        public float yGemPosition;
+    }
     public class PlatformGenerator : MonoBehaviour
     {
-        [SerializeField] ObjectPooler[] platformPoolers;
+        public PlatformData[] platformPoolers;
+        [Space]
         [SerializeField] Transform generationPoint;
 
         float[] platformWidths;
@@ -32,7 +40,7 @@ namespace Glide.Utilities
 
             for (int i = 0; i < platformPoolers.Length; i++)
             {
-                platformWidths[i] = platformPoolers[i].GetPooledObjectColliderSize();
+                platformWidths[i] = platformPoolers[i].objectPools.GetPooledObjectColliderSize();
             }
         }
 
@@ -43,14 +51,14 @@ namespace Glide.Utilities
                 selectedPlatform = Random.Range(0, platformPoolers.Length);
 
                 transform.position = new Vector3(transform.position.x + (platformWidths[selectedPlatform] / 2), transform.position.y, transform.position.z);
-                GameObject newPlatform = platformPoolers[selectedPlatform].GetPooledObject();
+                GameObject newPlatform = platformPoolers[selectedPlatform].objectPools.GetPooledObject();
                 //newPlatform.transform.position = transform.position;
                 newPlatform.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
                 newPlatform.SetActive(true);
 
                 if (Random.Range(0f, 100f) < randomGemThreshold)
                 {
-                    coinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z));
+                    coinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + platformPoolers[selectedPlatform].yGemPosition, transform.position.z));
                 }
 
                 transform.position = new Vector3(transform.position.x + (platformWidths[selectedPlatform] / 2), transform.position.y, transform.position.z);
