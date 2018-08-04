@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Glide.Characters;
 using Glide.Platforms;
+using Glide.UI;
 
 namespace Glide.Manager
 {
@@ -12,11 +13,11 @@ namespace Glide.Manager
         Vector3 platformStartPoint;
         [SerializeField] PlayerController playerController;
         Vector3 playerStartPoint;
-        [Space]
-        [SerializeField] float restartDelay = 0.5f;
 
         DestroyPlatforms[] platformsList;
         ScoreManager scoreManager;
+
+        [SerializeField] DeathMenu deathMenu;
 
         // Use this for initialization
         void Start()
@@ -33,14 +34,14 @@ namespace Glide.Manager
         }
         public void RestartGame()
         {
-            StartCoroutine("IRestartGame");
-        }
-        public IEnumerator IRestartGame()
-        {
             scoreManager.GetScoreIncreasing(false);
             playerController.gameObject.SetActive(false);
-            yield return new WaitForSeconds(restartDelay);
 
+            deathMenu.gameObject.SetActive(true);
+        }
+        public void Restart()
+        {
+            deathMenu.gameObject.SetActive(false);
             platformsList = FindObjectsOfType<DestroyPlatforms>();
             foreach (var item in platformsList)
             {
