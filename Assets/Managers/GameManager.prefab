@@ -53,4 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformGenerator: {fileID: 0}
   playerController: {fileID: 0}
-  restartDelay: 0.5
+  deathMenu: {fileID: 0}

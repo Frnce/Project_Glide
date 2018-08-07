@@ -9,6 +9,7 @@ namespace Glide.Characters
         Rigidbody2D rb2d;
         PlayerController playerController;
         [SerializeField] float jumpTime = 0f;
+        public bool canJump = false;
         float jumpTimeCounter;
 
         bool inputStay;
@@ -61,35 +62,36 @@ namespace Glide.Characters
 
         private void PlayerMove()
         {
-            //TODO player movement can still be upgraded
             rb2d.velocity = new Vector2(playerController.GetMoveSpeed(), rb2d.velocity.y);
             PlayerJump();
         }
 
         private void PlayerJump()
         {
-            //TODO Implement Mobile Controls
-            if (inputStay)
+            if (canJump)
             {
-                if (playerController.GetIsGrounded())
+                if (inputStay)
                 {
-                    if (jumpTimeCounter > 0)
+                    if (playerController.GetIsGrounded())
                     {
-                        rb2d.velocity = new Vector2(rb2d.velocity.x, playerController.GetJumpForce());
-                        jumpTimeCounter -= Time.deltaTime;
+                        if (jumpTimeCounter > 0)
+                        {
+                            rb2d.velocity = new Vector2(rb2d.velocity.x, playerController.GetJumpForce());
+                            jumpTimeCounter -= Time.deltaTime;
+                        }
                     }
                 }
-            }
-            if (inputUp)
-            {
+                if (inputUp)
+                {
+                    if (playerController.GetIsGrounded())
+                    {
+                        jumpTimeCounter = 0;
+                    }
+                }
                 if (playerController.GetIsGrounded())
                 {
-                    jumpTimeCounter = 0;
+                    jumpTimeCounter = jumpTime;
                 }
-            }
-            if (playerController.GetIsGrounded())
-            {
-                jumpTimeCounter = jumpTime;
             }
         }
     }

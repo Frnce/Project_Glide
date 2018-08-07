@@ -2084,6 +2084,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114314377945835364, guid: b34af67e493ae38469176d988d5c68d7,
+        type: 2}
+      propertyPath: canJump
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b34af67e493ae38469176d988d5c68d7, type: 2}
   m_IsPrefabAsset: 0
@@ -2094,11 +2099,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.size
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4735241902275744, guid: 3c48c3c90446e624098524586090d9c3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 11
@@ -2131,68 +2131,52 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: generationPoint
-      value: 
-      objectReference: {fileID: 1235160048}
-    - target: {fileID: 1057430141883898, guid: 3c48c3c90446e624098524586090d9c3, type: 2}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.data[6]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.data[7]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
-        type: 2}
-      propertyPath: platformPoolers.Array.data[8]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3,
+    - target: {fileID: 114864704591955132, guid: 3c48c3c90446e624098524586090d9c3,
         type: 2}
       propertyPath: platformPoolers.Array.data[0].objectPools
       value: 
       objectReference: {fileID: 849637934}
-    m_RemovedComponents:
-    - {fileID: 114820462938375802, guid: 3c48c3c90446e624098524586090d9c3, type: 2}
+    - target: {fileID: 114864704591955132, guid: 3c48c3c90446e624098524586090d9c3,
+        type: 2}
+      propertyPath: platformPoolers.Array.data[1].objectPools
+      value: 
+      objectReference: {fileID: 950527532}
+    - target: {fileID: 114864704591955132, guid: 3c48c3c90446e624098524586090d9c3,
+        type: 2}
+      propertyPath: platformPoolers.Array.data[2].objectPools
+      value: 
+      objectReference: {fileID: 669586757}
+    - target: {fileID: 114864704591955132, guid: 3c48c3c90446e624098524586090d9c3,
+        type: 2}
+      propertyPath: platformPoolers.Array.data[3].objectPools
+      value: 
+      objectReference: {fileID: 1451439285}
+    - target: {fileID: 114864704591955132, guid: 3c48c3c90446e624098524586090d9c3,
+        type: 2}
+      propertyPath: platformPoolers.Array.data[4].objectPools
+      value: 
+      objectReference: {fileID: 379571088}
+    - target: {fileID: 114864704591955132, guid: 3c48c3c90446e624098524586090d9c3,
+        type: 2}
+      propertyPath: platformPoolers.Array.data[5].objectPools
+      value: 
+      objectReference: {fileID: 1486299935}
+    - target: {fileID: 114864704591955132, guid: 3c48c3c90446e624098524586090d9c3,
+        type: 2}
+      propertyPath: platformPoolers.Array.data[6].objectPools
+      value: 
+      objectReference: {fileID: 1449507443}
+    - target: {fileID: 114864704591955132, guid: 3c48c3c90446e624098524586090d9c3,
+        type: 2}
+      propertyPath: platformPoolers.Array.data[7].objectPools
+      value: 
+      objectReference: {fileID: 1989597521}
+    - target: {fileID: 114864704591955132, guid: 3c48c3c90446e624098524586090d9c3,
+        type: 2}
+      propertyPath: generationPoint
+      value: 
+      objectReference: {fileID: 1235160048}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c48c3c90446e624098524586090d9c3, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1718565422
@@ -2467,41 +2451,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2001016808}
   m_CullTransparentMesh: 0
---- !u!1 &2064269274 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1057430141883898, guid: 3c48c3c90446e624098524586090d9c3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1630215285}
---- !u!114 &2064269275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2064269274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074325057a912ac4e9e34f94c957f8e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformPoolers:
-  - objectPools: {fileID: 849637934}
-    yGemPosition: 2
-  - objectPools: {fileID: 950527532}
-    yGemPosition: 4.5
-  - objectPools: {fileID: 669586757}
-    yGemPosition: 2
-  - objectPools: {fileID: 1451439285}
-    yGemPosition: 4.5
-  - objectPools: {fileID: 379571088}
-    yGemPosition: 4.5
-  - objectPools: {fileID: 1486299935}
-    yGemPosition: 2
-  - objectPools: {fileID: 1449507443}
-    yGemPosition: 3.3
-  - objectPools: {fileID: 1989597521}
-    yGemPosition: 2
-  generationPoint: {fileID: 1235160048}
-  randomGemThreshold: 75
 --- !u!1001 &2078773718
 Prefab:
   m_ObjectHideFlags: 0
