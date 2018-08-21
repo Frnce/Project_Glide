@@ -7,6 +7,7 @@ namespace Glide.Characters
 {
     public class PlayerController : MonoBehaviour
     {
+
         [SerializeField] float moveSpeed = 10f;
         [SerializeField] float jumpForce = 10f;
         [Header("GroundDetection")]
@@ -39,7 +40,6 @@ namespace Glide.Characters
             speedMilestoneCountStore = speedMilestoneCount;
             speedIncreaseMilestoneStore = speedIncreaseMilestone;
         }
-
         public float GetMoveSpeed()
         {
             return moveSpeed;

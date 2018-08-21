@@ -8,12 +8,8 @@ namespace Glide.Characters
     {
         Rigidbody2D rb2d;
         PlayerController playerController;
-        [SerializeField] float jumpTime = 0f;
-        public bool canJump = false;
-        float jumpTimeCounter;
 
-        bool inputStay;
-        bool inputUp;
+        bool input;
 
         Animator anim;
         // Use this for initialization
@@ -21,7 +17,6 @@ namespace Glide.Characters
         {
             rb2d = GetComponent<Rigidbody2D>();
             playerController = GetComponent<PlayerController>();
-            jumpTimeCounter = jumpTime;
 
             anim = FindObjectOfType<Animator>();
         }
@@ -33,7 +28,7 @@ namespace Glide.Characters
 
         private void SetAnimations()
         {
-            if (inputStay)
+            if (!playerController.GetIsGrounded())
             {
                 anim.SetBool("jumped", true);
             }
@@ -50,8 +45,7 @@ namespace Glide.Characters
 
         private void InitializeInputs()
         {
-            inputStay = Input.GetMouseButton(0);
-            inputUp = Input.GetMouseButtonUp(0);
+            input = Input.GetMouseButton(0);
         }
 
         // Update is called once per frame
@@ -68,29 +62,11 @@ namespace Glide.Characters
 
         private void PlayerJump()
         {
-            if (canJump)
+            if (playerController.GetIsGrounded())
             {
-                if (inputStay)
+                if (input)
                 {
-                    if (playerController.GetIsGrounded())
-                    {
-                        if (jumpTimeCounter > 0)
-                        {
-                            rb2d.velocity = new Vector2(rb2d.velocity.x, playerController.GetJumpForce());
-                            jumpTimeCounter -= Time.deltaTime;
-                        }
-                    }
-                }
-                if (inputUp)
-                {
-                    if (playerController.GetIsGrounded())
-                    {
-                        jumpTimeCounter = 0;
-                    }
-                }
-                if (playerController.GetIsGrounded())
-                {
-                    jumpTimeCounter = jumpTime;
+                    rb2d.velocity = new Vector2(rb2d.velocity.x, playerController.GetJumpForce());
                 }
             }
         }

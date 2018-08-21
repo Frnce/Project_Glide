@@ -9,9 +9,12 @@ namespace Glide.UI
     public class DeathMenu : MonoBehaviour
     {
         public string mainMenuLevel;
+        public string mainGameLevel;
         public void RestartGame()
         {
-            FindObjectOfType<GameManager>().Restart();  
+            //TODO For testing purposes
+            FindObjectOfType<GameManager>().Restart();
+            //SceneManager.LoadScene(mainGameLevel);
         }
         public void ReturnToMain()
         {
